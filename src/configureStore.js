@@ -1,18 +1,13 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import createSagaMiddleware from 'redux-saga';
-
 
 /**
  * Configure Store
  * @return {Object} - The whole state tree the your application
  */
-const configureStore = (reducer, rootSaga) => {
+const configureStore = (reducer) => {
   let store;
-  const sagaMiddleware = createSagaMiddleware();
-  const middlewares = [
-    sagaMiddleware,
-  ];
+  const middlewares = [];
 
   if (process.env.NODE_ENV === 'development') {
     const composeEnhancers = composeWithDevTools({ name: 'exchange-currencies' });
@@ -20,8 +15,6 @@ const configureStore = (reducer, rootSaga) => {
   } else {
     store = applyMiddleware(...middlewares)(createStore)(reducer);
   }
-
-  sagaMiddleware.run(rootSaga);
 
   return store;
 };
