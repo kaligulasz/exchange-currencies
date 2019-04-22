@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
   ${styledNormalize}
 
   body {
-    color: ${theme.color.darkGray};
+    color: ${theme.color.white};
     font: 100% BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   }
 `;

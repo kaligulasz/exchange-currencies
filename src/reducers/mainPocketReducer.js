@@ -5,16 +5,22 @@ import {
 const mainPocket = (state = {
   pockets: [
     {
-      currency: 'usd',
-      amount: 30,
+      currency: '$',
+      description: 'USD - American Dollar',
+      amount: 30.31,
+      id: 1,
     },
     {
-      currency: 'euro',
-      amount: 20,
+      currency: '€',
+      description: 'EUR - Euro',
+      amount: 20.10,
+      id: 2,
     },
     {
-      currency: 'pound',
-      amount: 25,
+      currency: '£',
+      description: 'GBP - British Pound',
+      amount: 25.55,
+      id: 3,
     },
   ],
 }, action) => {
