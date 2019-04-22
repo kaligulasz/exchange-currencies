@@ -51,13 +51,15 @@ module.exports = (env = {}) => {
     ],
 
     module: {
-      rules: [{
-        test: /\.js?$/,
-        exclude: /(node_modules)/,
-        use: {
-          loader: 'babel-loader',
+      rules: [
+        {
+          test: /\.js?$/,
+          exclude: /(node_modules)/,
+          use: {
+            loader: 'babel-loader',
+          },
         },
-      }],
+      ],
     },
 
     devtool: isProduction ? 'hidden-source-map' : 'cheap-module-eval-source-map',

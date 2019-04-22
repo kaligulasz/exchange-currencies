@@ -8,6 +8,7 @@ import Button from '../components/Button';
 
 // Reducers
 import { getMainPocket } from '../reducers/mainPocketReducer';
+import Carousel from '../components/carousel/Carousel';
 
 const MainSection = styled.section`
   height: 40vh;
@@ -29,7 +30,7 @@ const handleOnClick = () => console.log('click');
 const Main = ({ mainPocket }) => (
   <MainSection>
     <Wrapper>
-      {mainPocket.map(item => <div>{item.currency}</div>)}
+      <Carousel items={mainPocket} />
       <Button onClick={handleOnClick}>
         Ex
       </Button>
