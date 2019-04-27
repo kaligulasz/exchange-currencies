@@ -65,6 +65,7 @@ module.exports = (env = {}) => {
     devtool: isProduction ? 'hidden-source-map' : 'cheap-module-eval-source-map',
 
     devServer: {
+      historyApiFallback: true,
       host: 'localhost',
       contentBase: sourcePath,
       compress: true,

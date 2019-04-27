@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 // Components
 import Button from '../components/Button';
@@ -25,18 +26,22 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const handleOnClick = () => console.log('click');
+const Main = ({ mainPocket, history }) => {
+  const handleOnClick = () => {
+    history.push('exchange');
+  };
 
-const Main = ({ mainPocket }) => (
-  <MainSection>
-    <Wrapper>
-      <Carousel items={mainPocket} />
-      <Button onClick={handleOnClick}>
-        Ex
-      </Button>
-    </Wrapper>
-  </MainSection>
-);
+  return (
+    <MainSection>
+      <Wrapper>
+        <Carousel items={mainPocket} />
+        <Button onClick={handleOnClick}>
+          Ex
+        </Button>
+      </Wrapper>
+    </MainSection>
+  );
+};
 
 Main.propTypes = {
   mainPocket: PropTypes.array.isRequired,
@@ -47,5 +52,4 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps,
-  {},
-)(Main);
+  {})(withRouter(Main));
