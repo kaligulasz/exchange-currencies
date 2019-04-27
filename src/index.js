@@ -7,9 +7,8 @@ import App from './containers/App';
 
 // Store
 import configureStore from './configureStore';
-import reducers from './reducers/index';
 
-const store = configureStore(reducers);
+const store = configureStore();
 
 render(
   <Provider store={store}>
