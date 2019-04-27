@@ -1,11 +1,16 @@
 import React, { Fragment } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import styledNormalize from 'styled-normalize';
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom';
 
 import theme from '../common/themeVariables';
 
 // Components
 import Main from './Main';
+import Exchange from './Exchange';
 
 const GlobalStyles = createGlobalStyle`
   ${styledNormalize}
@@ -20,7 +25,12 @@ const App = () => (
   <ThemeProvider theme={theme}>
     <Fragment>
       <GlobalStyles />
-      <Main />
+      <Router>
+        <Fragment>
+          <Route path="/" component={Main} exact />
+          <Route path="/exchange" component={Exchange} />
+        </Fragment>
+      </Router>
     </Fragment>
   </ThemeProvider>
 );
