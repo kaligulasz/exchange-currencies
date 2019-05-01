@@ -7,7 +7,6 @@ const distPath = path.join(__dirname, './dist');
 
 module.exports = (env = {}) => {
   const isProduction = env.production === true;
-  const publicPath = env.public_path;
   const htmlWebpackPlugin = new HtmlWebpackPlugin({
     template: path.join(__dirname, 'src/index.html'),
     filename: 'index.html',
@@ -25,7 +24,7 @@ module.exports = (env = {}) => {
       path: distPath,
       chunkFilename: isProduction ? '[name].[chunkhash].js' : '[name].js',
       filename: isProduction ? '[name].[chunkhash].js' : '[name].js',
-      publicPath,
+      publicPath: '/',
     },
 
     optimization: {

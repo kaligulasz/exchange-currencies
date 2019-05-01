@@ -18,7 +18,6 @@ import {
   updateCurrencyRatesSuccessful,
   updateCurrencyRatesFailed,
   updateCurrencyRatesCancelled,
-  updateRates,
 } from '../actions/currencyRatesActions';
 
 function* updateCurrencyRates() {
@@ -29,10 +28,9 @@ function* updateCurrencyRates() {
         ['GBP', 'EUR', 'USD'],
       );
 
-      yield put(updateRates(currenciesData));
-      yield put(updateCurrencyRatesSuccessful());
+      yield put(updateCurrencyRatesSuccessful(currenciesData));
 
-      yield delay(10000);
+      yield delay(1000000);
     }
   } catch (error) {
     yield put(updateCurrencyRatesFailed(error));

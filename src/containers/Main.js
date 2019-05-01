@@ -6,21 +6,13 @@ import { withRouter } from 'react-router-dom';
 
 // Components
 import Button from '../components/Button';
+import AppWrapper from '../components/AppWrapper';
 
 // Reducers
 import { getMainPocket } from '../reducers/mainPocketReducer';
 import Carousel from '../components/carousel/Carousel';
 
-const MainSection = styled.section`
-  height: 40vh;
-  background: #43cea2;
-  background: -webkit-linear-gradient(to right, #185a9d, #43cea2);
-  background: linear-gradient(to right, #185a9d, #43cea2);
-`;
-
-const Wrapper = styled.div`
-  width: 70%;
-  margin: 0 auto;
+const FlexContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -28,23 +20,23 @@ const Wrapper = styled.div`
 
 const Main = ({ mainPocket, history }) => {
   const handleOnClick = () => {
-    history.push('exchange');
+    history.push('exchange/usd');
   };
 
   return (
-    <MainSection>
-      <Wrapper>
+    <AppWrapper>
+      <FlexContainer>
         <Carousel items={mainPocket} />
         <Button onClick={handleOnClick}>
           Ex
         </Button>
-      </Wrapper>
-    </MainSection>
+      </FlexContainer>
+    </AppWrapper>
   );
 };
 
 Main.propTypes = {
-  mainPocket: PropTypes.array.isRequired,
+  mainPocket: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({

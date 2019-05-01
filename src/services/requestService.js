@@ -14,7 +14,7 @@ const appId = '53a4926114064205bb44d5a875ca0b50';
 const buildFeedUrl = (currencies) => {
   const domain = '//openexchangerates.org/';
   const target = 'api/latest.json';
-  const query = `symbols=${currencies.join(',').upperCase()}`;
+  const query = `symbols=${currencies.join(',')}`;
 
 
   return `${domain}${target}?app_id=${appId}&${query}`;
