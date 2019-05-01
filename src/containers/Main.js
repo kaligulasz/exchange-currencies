@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import ReactRouterPropTypes from 'react-router-prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -19,14 +20,16 @@ const FlexContainer = styled.div`
 `;
 
 const Main = ({ mainPocket, history }) => {
+  const [selectedCurrency, setSelectedCurrency] = useState({});
+
   const handleOnClick = () => {
-    history.push('exchange/usd');
+    history.push(`exchange/${selectedCurrency.changingFromCurrency}/${selectedCurrency.changingToCurrency}`);
   };
 
   return (
     <AppWrapper>
       <FlexContainer>
-        <Carousel items={mainPocket} />
+        <Carousel items={mainPocket} onSlideChange={setSelectedCurrency} />
         <Button onClick={handleOnClick}>
           Ex
         </Button>
@@ -37,11 +40,11 @@ const Main = ({ mainPocket, history }) => {
 
 Main.propTypes = {
   mainPocket: PropTypes.object.isRequired,
+  history: ReactRouterPropTypes.history.isRequired,
 };
 
 const mapStateToProps = state => ({
   mainPocket: getMainPocket(state),
 });
 
-export default connect(mapStateToProps,
-  {})(withRouter(Main));
+export default connect(mapStateToProps)(withRouter(Main));

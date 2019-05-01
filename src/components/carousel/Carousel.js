@@ -36,10 +36,37 @@ const carouselConfig = {
   config: config.gentle,
 };
 
-const Carousel = ({ items }) => {
+const Carousel = ({ items, onSlideChange }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
   const slides = parseToSlides(items);
+  const itemsKeys = Object.keys(items);
+
+  const handleSlideChange = (event) => {
+    let slideNumber = 0;
+
+    switch (event.target.getAttribute('data-direction')) {
+      case 'next':
+        slideNumber = currentSlide === (slides.length - 1) ? 0 : currentSlide + 1;
+        break;
+
+      case 'prev':
+        slideNumber = currentSlide === 0 ? (itemsKeys.length - 1) : currentSlide - 1;
+        break;
+
+      default:
+        slideNumber = 0;
+        break;
+    }
+
+    setCurrentSlide(slideNumber);
+
+    onSlideChange({
+      changingFromCurrency: itemsKeys[slideNumber],
+      changingToCurrency: (itemsKeys.length - 1) === slideNumber
+        ? itemsKeys[0]
+        : itemsKeys[slideNumber + 1],
+    });
+  };
 
   return (
     <Wrapper>
@@ -53,7 +80,7 @@ const Carousel = ({ items }) => {
       <CarouselContainer />
       <CarouselNavigation
         currentSlide={currentSlide}
-        handleSlideChange={setCurrentSlide}
+        handleSlideChange={handleSlideChange}
       />
     </Wrapper>
   );
@@ -61,6 +88,7 @@ const Carousel = ({ items }) => {
 
 Carousel.propTypes = {
   items: PropTypes.object.isRequired,
+  onSlideChange: PropTypes.func.isRequired,
 };
 
 export default Carousel;
