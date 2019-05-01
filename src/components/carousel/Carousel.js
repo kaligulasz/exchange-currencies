@@ -22,11 +22,11 @@ const CarouselContainer = styled.div`
   justify-content: space-around;
 `;
 
-const parseToSlides = items => items.reduce((prev, current) => ([
+const parseToSlides = items => Object.keys(items).reduce((prev, current) => ([
   ...prev,
   {
-    key: current.id,
-    content: <CarouselItem item={current} />,
+    key: items[current].id,
+    content: <CarouselItem item={items[current]} />,
   },
 ]), []);
 
@@ -60,7 +60,7 @@ const Carousel = ({ items }) => {
 };
 
 Carousel.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.object.isRequired,
 };
 
 export default Carousel;

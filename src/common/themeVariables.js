@@ -7,6 +7,7 @@ const theme = {
     black: '#000',
     lightGray: '#ddd',
     darkGray: '#505050',
+    primaryGradient: 'linear-gradient(to right, #185a9d, #43cea2)',
   },
   padding: '1em',
   mediaQuery: {

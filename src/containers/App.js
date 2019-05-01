@@ -8,6 +8,7 @@ import {
 
 import theme from '../common/themeVariables';
 
+
 // Components
 import Main from './Main';
 import Exchange from './Exchange';
@@ -17,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     color: ${theme.color.white};
-    font: 100% BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    font: 100% 'Barlow Semi Condensed', sans-serif;
   }
 `;
 
@@ -28,7 +29,7 @@ const App = () => (
       <Router>
         <Fragment>
           <Route path="/" component={Main} exact />
-          <Route path="/exchange" component={Exchange} />
+          <Route path="/exchange/:currency" component={Exchange} />
         </Fragment>
       </Router>
     </Fragment>
