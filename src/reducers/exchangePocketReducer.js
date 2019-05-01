@@ -1,4 +1,4 @@
-import { SYNC_WITH_MAIN_POCKET } from '../actions/exchangePocketActions';
+import { SET_CURRENCY_AMOUNT, SYNC_WITH_MAIN_POCKET } from '../actions/exchangePocketActions';
 
 const exchangePocket = (state = {
   pockets: {
@@ -30,6 +30,17 @@ const exchangePocket = (state = {
       return {
         ...state,
         pockets: action.pockets,
+      };
+    case SET_CURRENCY_AMOUNT:
+      return {
+        ...state,
+        pockets: {
+          ...state.pockets,
+          [action.currency]: {
+            ...state.pockets[action.currency],
+            amount: Number(action.amount.toFixed(2)),
+          },
+        },
       };
     default:
       return state;

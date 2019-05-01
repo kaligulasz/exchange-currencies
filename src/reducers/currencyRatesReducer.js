@@ -61,5 +61,6 @@ const currencyRates = (state = {
 };
 
 export const getStatus = state => state.currencyRates.status;
+export const getCurrencyRates = state => state.currencyRates.currencies;
 
 export default currencyRates;

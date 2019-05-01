@@ -43,7 +43,12 @@ const Input = styled.input`
   width: 100%;
 `;
 
-const ExchangeItem = ({ pocket, primary, secondary }) => {
+const ExchangeItem = ({
+  pocket,
+  primary,
+  secondary,
+  onAmountChange,
+}) => {
   const { currency, currencySymbol, amount } = pocket;
 
   return (
@@ -61,10 +66,10 @@ const ExchangeItem = ({ pocket, primary, secondary }) => {
         {primary
           ? (
             <Item>
-              <Input type="number" />
+              <Input type="number" onChange={onAmountChange} />
             </Item>
           ) : (
-            <div>Result</div>
+            <div>{amount}</div>
           )
         }
       </Container>
@@ -75,12 +80,14 @@ const ExchangeItem = ({ pocket, primary, secondary }) => {
 ExchangeItem.defaultProps = {
   primary: false,
   secondary: false,
+  onAmountChange: null,
 };
 
 ExchangeItem.propTypes = {
   pocket: PropTypes.object.isRequired,
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
+  onAmountChange: PropTypes.func,
 };
 
 export default ExchangeItem;
