@@ -20,15 +20,14 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const CarouselNavigation = ({ currentSlide, handleSlideChange }) => (
+const CarouselNavigation = ({ handleSlideChange }) => (
   <Wrapper>
-    <Button onClick={() => handleSlideChange(currentSlide - 1)} type="button" />
-    <Button onClick={() => handleSlideChange(currentSlide + 1)} type="button" />
+    <Button onClick={handleSlideChange} type="button" data-direction="prev" />
+    <Button onClick={handleSlideChange} type="button" data-direction="next" />
   </Wrapper>
 );
 
 CarouselNavigation.propTypes = {
-  currentSlide: PropTypes.number.isRequired,
   handleSlideChange: PropTypes.func.isRequired,
 };
 
