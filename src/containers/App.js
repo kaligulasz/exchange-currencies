@@ -29,7 +29,7 @@ const App = () => (
       <Router>
         <Fragment>
           <Route path="/" component={Main} exact />
-          <Route path="/exchange/:currency" component={Exchange} />
+          <Route path="/exchange/:changingFromCurrency/:changingToCurrency" component={Exchange} />
         </Fragment>
       </Router>
     </Fragment>
