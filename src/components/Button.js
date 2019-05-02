@@ -24,8 +24,12 @@ const ButtonContainer = styled.button`
   
   ${({ tertiary }) => tertiary && `
     border-radius: 0.5rem;
-    padding: 0.2rem 0.6rem;
+    padding: 0.1rem 1rem;
     font-weight: 300;
+  `};
+  
+  ${({ uppercase }) => uppercase && `
+    text-transform: uppercase;
   `};
 `;
 
