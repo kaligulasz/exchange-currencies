@@ -1,5 +1,5 @@
 import {
-  CHANGE_AMOUNT,
+  UPDATE_MAIN_POCKET,
 } from '../actions/mainPocketActions';
 
 const mainPocket = (state = {
@@ -28,10 +28,10 @@ const mainPocket = (state = {
   },
 }, action) => {
   switch (action.type) {
-    case CHANGE_AMOUNT:
+    case UPDATE_MAIN_POCKET:
       return {
         ...state,
-        pockets: [],
+        pockets: action.pockets,
       };
     default:
       return state;

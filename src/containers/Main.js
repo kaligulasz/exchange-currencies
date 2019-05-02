@@ -20,7 +20,10 @@ const FlexContainer = styled.div`
 `;
 
 const Main = ({ mainPocket, history }) => {
-  const [selectedCurrency, setSelectedCurrency] = useState({});
+  const [selectedCurrency, setSelectedCurrency] = useState({
+    changingFromCurrency: 'usd',
+    changingToCurrency: 'eur',
+  });
 
   const handleOnClick = () => {
     history.push(`exchange/${selectedCurrency.changingFromCurrency}/${selectedCurrency.changingToCurrency}`);
@@ -30,7 +33,7 @@ const Main = ({ mainPocket, history }) => {
     <AppWrapper>
       <FlexContainer>
         <Carousel items={mainPocket} onSlideChange={setSelectedCurrency} />
-        <Button onClick={handleOnClick}>
+        <Button onClick={handleOnClick} secondary>
           Ex
         </Button>
       </FlexContainer>
