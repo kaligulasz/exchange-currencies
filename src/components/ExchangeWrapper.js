@@ -83,8 +83,9 @@ const ExchangeWrapper = ({
         <Button
           onClick={handleOnExchange}
           primary
+          uppercase
         >
-          EXCHANGE
+          exchange
         </Button>
       </ButtonWrapper>
     </Fragment>

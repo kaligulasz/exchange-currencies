@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     color: ${theme.color.white};
-    font: 100% 'Barlow Semi Condensed', sans-serif;
+    font: 100% / 1 'Barlow Semi Condensed', sans-serif;
   }
 `;
 

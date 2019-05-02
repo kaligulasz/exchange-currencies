@@ -1,10 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import ReactRouterPropTypes from 'react-router-prop-types';
 
 // Components
 import Button from './Button';
-import ExchangeSelectors from './ExchangeSelectors';
+import CurrencySelectors from './CurrencySelectors';
 
 const Background = styled.div`
   background: #464b51;
@@ -28,11 +29,15 @@ const ExchangeNavigation = ({ history }) => {
   return (
     <Background>
       <AppWrapper>
-        <ExchangeSelectors />
-        <Button onClick={handleOnClick} tertiary>back</Button>
+        <CurrencySelectors />
+        <Button onClick={handleOnClick} tertiary uppercase>back</Button>
       </AppWrapper>
     </Background>
   );
+};
+
+ExchangeNavigation.propTypes = {
+  history: ReactRouterPropTypes.history.isRequired,
 };
 
 export default withRouter(ExchangeNavigation);

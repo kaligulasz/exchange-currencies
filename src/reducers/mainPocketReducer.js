@@ -39,5 +39,6 @@ const mainPocket = (state = {
 };
 
 export const getMainPocket = state => state.mainPocket.pockets;
+export const getMainPocketCurrencyList = state => Object.keys(state.mainPocket.pockets);
 
 export default mainPocket;
