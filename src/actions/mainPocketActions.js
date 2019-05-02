@@ -1,5 +1,6 @@
-export const CHANGE_AMOUNT = 'CHANGE_AMOUNT';
+export const UPDATE_MAIN_POCKET = 'UPDATE_MAIN_POCKET';
 
-export const changeAmount = () => ({
-  type: CHANGE_AMOUNT,
+export const updateMainPocket = pockets => ({
+  type: UPDATE_MAIN_POCKET,
+  pockets,
 });

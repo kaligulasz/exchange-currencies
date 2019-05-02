@@ -11,6 +11,7 @@ import { getStatus } from '../reducers/currencyRatesReducer';
 // Components
 import RequestLoader from '../components/RequestLoader';
 import ExchangeWrapper from '../components/ExchangeWrapper';
+import ExchangeNavigation from '../components/ExchangeNavigation';
 
 const Exchange = ({
   cancelUpdateCurrencyRatesAction,
@@ -27,6 +28,7 @@ const Exchange = ({
 
   return (
     <RequestLoader status={status}>
+      <ExchangeNavigation />
       <ExchangeWrapper />
     </RequestLoader>
   );

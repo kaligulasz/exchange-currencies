@@ -11,7 +11,6 @@ const Title = styled.h3`
 
 const Wrapper = styled.section`
   box-sizing: border-box;
-  padding: 1rem;
   height: 50%;
   ${({ secondary }) => secondary && `
     background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 90%);
@@ -21,6 +20,7 @@ const Wrapper = styled.section`
 const Container = styled.div`
   margin: 0 auto;
   width: 70%;
+  max-width: 500px;
   display: flex;
   height: 100%;
   align-items: center;
