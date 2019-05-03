@@ -1,23 +1,28 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 // Components
 import Loader from './Loader';
 
+const Wrapper = styled.div`
+  position: relative;
+`;
+
 const RequestLoader = ({ status, children }) => (
-  <Fragment>
+  <Wrapper>
     {status === 'initial'
       && <Loader />
     }
 
-    {status === 'successful'
+    {(status === 'successful' || status === 'initial')
       && children
     }
 
     {status === 'error'
       && 'error'
     }
-  </Fragment>
+  </Wrapper>
 );
 
 RequestLoader.propTypes = {
