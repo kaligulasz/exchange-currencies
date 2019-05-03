@@ -24,9 +24,9 @@ const Select = ({
   selected,
   ...rest
 }) => (
-  <StyledSelect onChange={onChange} {...rest}>
+  <StyledSelect onChange={onChange} {...rest} defaultValue={selected}>
     {options.map(option => (
-      <option key={option} {...(selected === option && { selected: 'selected' })}>{option}</option>
+      <option key={option}>{option}</option>
     ))}
   </StyledSelect>
 );

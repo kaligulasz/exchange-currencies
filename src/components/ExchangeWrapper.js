@@ -47,8 +47,7 @@ const ExchangeWrapper = ({
   const changingFromPocket = exchangePocket[changingFromCurrency];
   const changingToPocket = exchangePocket[changingToCurrency];
 
-  const onAmountChange = (event) => {
-    const { value } = event.target;
+  const onAmountChange = (value) => {
     const amountInDollars = value / currencyRates[changingFromCurrency].rate;
     const selectedCurrencyNewAmount = mainPocket[changingFromCurrency].amount - value;
 

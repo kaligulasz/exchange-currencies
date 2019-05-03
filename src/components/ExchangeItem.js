@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+// Components
+import MoneyInput from './MoneyInput';
+
 const Title = styled.h3`
   font-size: 2.2rem;
   font-weight: 400;
@@ -35,14 +38,6 @@ const Description = styled.div`
   margin-top: 0.5rem;
 `;
 
-const Input = styled.input`
-  border: 0;
-  border-radius: 1rem;
-  background: rgba(0, 0, 0, 0.1);
-  height: 3rem;
-  width: 100%;
-`;
-
 const ExchangeItem = ({
   pocket,
   primary,
@@ -66,7 +61,7 @@ const ExchangeItem = ({
         {primary
           ? (
             <Item>
-              <Input type="number" onChange={onAmountChange} />
+              <MoneyInput onChange={onAmountChange} />
             </Item>
           ) : (
             <div>{amount}</div>
