@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Sync } from 'styled-icons/octicons/Sync';
 
 // Components
 import Button from '../components/Button';
@@ -34,7 +35,7 @@ const Main = ({ mainPocket, history }) => {
       <FlexContainer>
         <Carousel items={mainPocket} onSlideChange={setSelectedCurrency} />
         <Button onClick={handleOnClick} secondary>
-          Ex
+          <Sync size="20" />
         </Button>
       </FlexContainer>
     </AppWrapper>
