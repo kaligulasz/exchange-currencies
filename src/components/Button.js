@@ -17,8 +17,8 @@ const ButtonContainer = styled.button`
   `};
   
   ${({ secondary }) => secondary && `
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
   `};
   

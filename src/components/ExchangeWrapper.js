@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Sync } from 'styled-icons/octicons/Sync';
 
 // Actions
 import { syncWithMainPocket, setCurrencyAmount } from '../actions/exchangePocketActions';
@@ -20,6 +21,12 @@ import Button from './Button';
 const BackgroundWrapper = styled.div`
   background: ${props => props.theme.color.primaryGradient};
   height: 40vh;
+`;
+
+const StyledSync = styled(Sync)`
+  display: block;
+  float: right;
+  margin-left: 0.3rem;
 `;
 
 const ButtonWrapper = styled.div`
@@ -85,6 +92,7 @@ const ExchangeWrapper = ({
           uppercase
         >
           exchange
+          <StyledSync size="19" />
         </Button>
       </ButtonWrapper>
     </Fragment>
