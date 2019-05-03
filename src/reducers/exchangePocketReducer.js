@@ -4,21 +4,21 @@ const exchangePocket = (state = {
   pockets: {
     usd: {
       currencySymbol: '$',
-      currency: 'USD',
+      currency: 'usd',
       description: 'USD - American Dollar',
       amount: 0,
       id: 1,
     },
     eur: {
       currencySymbol: '€',
-      currency: 'EUR',
+      currency: 'eur',
       description: 'EUR - Euro',
       amount: 0,
       id: 2,
     },
     gbp: {
       currencySymbol: '£',
-      currency: 'GBP',
+      currency: 'gbp',
       description: 'GBP - British Pound',
       amount: 0,
       id: 3,

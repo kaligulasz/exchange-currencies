@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 `;
 
 
-const MoneyInput = ({ onChange }) => {
+const MoneyInput = ({ onChange, maxValue }) => {
   const [inputValue, setInputValue] = useState('');
 
   const validateDotDuplication = value => [...value].filter(char => char.includes('.')).length <= 1;
@@ -48,6 +48,7 @@ const MoneyInput = ({ onChange }) => {
       (value === '' || regex.test(value))
       && validateDotDuplication(value)
       && validateTwoDigitsAfterDot(value)
+      && maxValue >= value
     ) {
       onChange(value);
       setInputValue(value);
@@ -64,6 +65,7 @@ const MoneyInput = ({ onChange }) => {
 
 MoneyInput.propTypes = {
   onChange: PropTypes.func.isRequired,
+  maxValue: PropTypes.number.isRequired,
 };
 
 export default MoneyInput;
