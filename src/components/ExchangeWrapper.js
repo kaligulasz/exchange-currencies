@@ -75,12 +75,14 @@ const ExchangeWrapper = ({
     <Fragment>
       <BackgroundWrapper>
         <ExchangeItem
+          mainPocket={mainPocket}
           pocket={changingFromPocket}
           onAmountChange={onAmountChange}
           primary
         />
 
         <ExchangeItem
+          mainPocket={mainPocket}
           pocket={changingToPocket}
           secondary
         />

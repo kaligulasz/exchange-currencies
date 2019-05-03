@@ -6,21 +6,21 @@ const mainPocket = (state = {
   pockets: {
     usd: {
       currencySymbol: '$',
-      currency: 'USD',
+      currency: 'usd',
       description: 'USD - American Dollar',
       amount: 30.31,
       id: 1,
     },
     eur: {
       currencySymbol: '€',
-      currency: 'EUR',
+      currency: 'eur',
       description: 'EUR - Euro',
       amount: 20.10,
       id: 2,
     },
     gbp: {
       currencySymbol: '£',
-      currency: 'GBP',
+      currency: 'gbp',
       description: 'GBP - British Pound',
       amount: 25.55,
       id: 3,

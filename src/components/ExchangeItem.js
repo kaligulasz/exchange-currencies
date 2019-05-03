@@ -10,6 +10,7 @@ const Title = styled.h3`
   font-weight: 400;
   line-height: 1;
   margin: 0;
+  text-transform: uppercase;
 `;
 
 const Wrapper = styled.section`
@@ -43,6 +44,7 @@ const ExchangeItem = ({
   primary,
   secondary,
   onAmountChange,
+  mainPocket,
 }) => {
   const { currency, currencySymbol, amount } = pocket;
 
@@ -61,7 +63,7 @@ const ExchangeItem = ({
         {primary
           ? (
             <Item>
-              <MoneyInput onChange={onAmountChange} />
+              <MoneyInput onChange={onAmountChange} maxValue={mainPocket[currency].amount} />
             </Item>
           ) : (
             <div>{amount}</div>
@@ -83,6 +85,7 @@ ExchangeItem.propTypes = {
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
   onAmountChange: PropTypes.func,
+  mainPocket: PropTypes.object.isRequired,
 };
 
 export default ExchangeItem;
