@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -16,7 +16,7 @@ const Input = styled.input`
 const MinusIcon = styled.div`
   width: 0.7rem;
   height: 3px;
-  margin-right: -1rem;
+  margin-right: -0.5rem;
   background: ${props => props.theme.color.white};
   border-radius: 0.07rem;
 `;
@@ -30,6 +30,13 @@ const Wrapper = styled.div`
 
 const MoneyInput = ({ onChange, maxValue }) => {
   const [inputValue, setInputValue] = useState('');
+
+  useEffect(() => {
+    if (maxValue < inputValue) {
+      setInputValue('');
+      onChange('');
+    }
+  }, [maxValue]);
 
   const validateDotDuplication = value => [...value].filter(char => char.includes('.')).length <= 1;
 
