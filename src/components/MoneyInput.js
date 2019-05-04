@@ -4,20 +4,19 @@ import PropTypes from 'prop-types';
 
 const Input = styled.input`
   border: 0;
-  border-radius: 1rem;
-  background: rgba(0, 0, 0, 0.1);
-  height: 1rem;
-  padding: 1rem;
+  background: none;
+  height: 3rem;
   text-align: right;
-  width: 50%;
+  font-size: 2rem;
   color: ${props => props.theme.color.white};
   position: relative;
+  outline: none;
 `;
 
 const MinusIcon = styled.div`
   width: 0.7rem;
-  margin-right: 1rem;
   height: 3px;
+  margin-right: -1rem;
   background: ${props => props.theme.color.white};
   border-radius: 0.07rem;
 `;
@@ -58,7 +57,7 @@ const MoneyInput = ({ onChange, maxValue }) => {
   return (
     <Wrapper>
       {inputValue && <MinusIcon />}
-      <Input onChange={checkValidation} type="text" value={inputValue} />
+      <Input onChange={checkValidation} size={inputValue.length} type="text" value={inputValue} />
     </Wrapper>
   );
 };
