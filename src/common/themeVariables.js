@@ -9,10 +9,9 @@ const theme = {
     darkGray: '#505050',
     primaryGradient: 'linear-gradient(to right, #185a9d, #43cea2)',
   },
-  padding: '1em',
-  mediaQuery: {
-    desktop: '700px',
-  },
+  primaryHeight: '55vh',
+  primaryWidth: '70%',
+  primaryMaxWidth: '30rem',
 };
 
 export default theme;

@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -19,10 +19,17 @@ import ExchangeItem from './ExchangeItem';
 
 // Components
 import Button from './Button';
+import ExchangeNavigation from './ExchangeNavigation';
 
-const BackgroundWrapper = styled.div`
+
+// Styled
+const PrimaryWrapper = styled.div`
+  height: ${props => props.theme.primaryHeight};
+`;
+
+const ItemsWrapper = styled.div`
   background: ${props => props.theme.color.primaryGradient};
-  height: 40vh;
+  height: 73%;
 `;
 
 const StyledSync = styled(Sync)`
@@ -31,10 +38,13 @@ const StyledSync = styled(Sync)`
   margin-left: 0.3rem;
 `;
 
-const ButtonWrapper = styled.div`
+const Footer = styled.div`
   text-align: center;
   background: linear-gradient(90deg, rgba(18,67,111,1) 0%, rgba(47,144,114,1) 100%);
-  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
 `;
 
 const ExchangeWrapper = ({
@@ -85,8 +95,9 @@ const ExchangeWrapper = ({
   };
 
   return (
-    <Fragment>
-      <BackgroundWrapper>
+    <PrimaryWrapper>
+      <ExchangeNavigation />
+      <ItemsWrapper>
         <ExchangeItem
           mainPocket={mainPocket}
           pocket={changingFromPocket}
@@ -101,8 +112,8 @@ const ExchangeWrapper = ({
           changingFromCurrencySymbol={changingFromPocket.currencySymbol}
           secondary
         />
-      </BackgroundWrapper>
-      <ButtonWrapper>
+      </ItemsWrapper>
+      <Footer>
         <Button
           onClick={handleOnExchange}
           primary
@@ -111,8 +122,8 @@ const ExchangeWrapper = ({
           exchange
           <StyledSync size="19" />
         </Button>
-      </ButtonWrapper>
-    </Fragment>
+      </Footer>
+    </PrimaryWrapper>
   );
 };
 

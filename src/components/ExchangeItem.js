@@ -25,8 +25,8 @@ const Wrapper = styled.section`
 
 const Container = styled.div`
   margin: 0 auto;
-  width: 70%;
-  max-width: 500px;
+  width: ${props => props.theme.primaryWidth};
+  max-width: ${props => props.theme.primaryMaxWidth};
   display: flex;
   height: 100%;
   align-items: center;
@@ -75,9 +75,7 @@ const ExchangeItem = ({
         <Item>
           <Title>{currency}</Title>
           <Description>
-            You have
-            <span>{currencySymbol}</span>
-            {mainPocketAmount.value}
+            {`You have ${currencySymbol}${mainPocketAmount.value}`}
           </Description>
         </Item>
 

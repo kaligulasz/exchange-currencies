@@ -9,15 +9,16 @@ import CurrencySelectors from './CurrencySelectors';
 
 const Background = styled.div`
   background: #464b51;
+  height: 12%;
+  display: flex;
 `;
 
 const AppWrapper = styled.div`
-  width: 70%;
-  height: 3rem;
+  width: ${props => props.theme.primaryWidth};
   margin: 0 auto;
   display: flex;
   align-items: center;
-  max-width: 500px;
+  max-width: ${props => props.theme.primaryMaxWidth};
   justify-content: space-between;
 `;
 

@@ -10,8 +10,8 @@ import CarouselNavigation from './CarouselNavigation';
 
 const Wrapper = styled.div`
   width: 100%;
-  max-width: 600px;
-  height: 200px;
+  max-width: 35rem;
+  height: 18rem;
   position: relative;
 `;
 
