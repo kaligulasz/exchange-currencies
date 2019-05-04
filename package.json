@@ -34,6 +34,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-styled-components": "^1.7.1",
+    "babel-plugin-transform-currency-operators": "^1.0.1",
     "chalk": "^2.4.1",
     "eslint": "^5.11.1",
     "eslint-config-airbnb": "^17.1.0",
@@ -55,6 +56,7 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
+    "currency.js": "^1.2.1",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",

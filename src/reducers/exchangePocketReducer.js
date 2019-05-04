@@ -38,8 +38,7 @@ const exchangePocket = (state = {
           ...state.pockets,
           [action.currency]: {
             ...state.pockets[action.currency],
-            amount: Number((Math.round(action.amount * 100) / 100).toFixed(2)),
-
+            amount: action.amount,
           },
         },
       };
