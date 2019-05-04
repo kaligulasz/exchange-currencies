@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Plus } from 'styled-icons/typicons/Plus';
+import currencyJs from 'currency.js';
 
 // Components
 import MoneyInput from './MoneyInput';
@@ -44,6 +45,10 @@ const Description = styled.div`
   `};
 `;
 
+const ResultWrapper = styled.div`
+  min-width: 6rem;
+`;
+
 
 const Result = styled.div`
   display: flex;
@@ -61,8 +66,8 @@ const ExchangeItem = ({
   changingFromCurrencySymbol,
 }) => {
   const { currency, currencySymbol, amount } = pocket;
-  const mainPocketAmount = mainPocket[currency].amount;
-  const summaryAmount = amount - mainPocketAmount;
+  const mainPocketAmount = currencyJs(mainPocket[currency].amount);
+  const summaryAmount = (currencyJs(amount) - mainPocketAmount).value;
 
   return (
     <Wrapper secondary={secondary}>
@@ -72,33 +77,29 @@ const ExchangeItem = ({
           <Description>
             You have
             <span>{currencySymbol}</span>
-            {mainPocketAmount}
+            {mainPocketAmount.value}
           </Description>
         </Item>
 
         {primary
           ? (
             <Item>
-              <MoneyInput onChange={onAmountChange} maxValue={mainPocketAmount} />
+              <MoneyInput onChange={onAmountChange} maxValue={mainPocketAmount.value} />
             </Item>
           ) : (
-            <div>
+            <ResultWrapper>
               <Result>
-                {summaryAmount > 0
-                  && (
-                    <Fragment>
-                      <Plus size="20" />
-                      <Title>
-                        {amount - mainPocketAmount}
-                      </Title>
-                    </Fragment>
-                  )
-                }
+                <Fragment>
+                  <Plus size="20" />
+                  <Title>
+                    {summaryAmount}
+                  </Title>
+                </Fragment>
               </Result>
               <Description textAlignRight>
-                {`${changingFromCurrencySymbol}1 = ${currencySymbol} ${actualRate}`}
+                {`${changingFromCurrencySymbol}1 = ${currencySymbol} ${currencyJs(actualRate)}`}
               </Description>
-            </div>
+            </ResultWrapper>
           )
         }
       </Container>

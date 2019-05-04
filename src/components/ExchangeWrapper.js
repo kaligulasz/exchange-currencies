@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Sync } from 'styled-icons/octicons/Sync';
+import currencyJs from 'currency.js';
 
 // Actions
 import { syncWithMainPocket, setCurrencyAmount } from '../actions/exchangePocketActions';
@@ -59,13 +60,15 @@ const ExchangeWrapper = ({
   );
 
   const onAmountChange = (value) => {
-    const amountInDollars = value / currencyRates[changingFromCurrency].rate;
-    const selectedCurrencyNewAmount = mainPocket[changingFromCurrency].amount - value;
+    const amountInDollars = currencyJs(value) / currencyRates[changingFromCurrency].rate;
+    const selectedCurrencyNewAmount = currencyJs(
+      mainPocket[changingFromCurrency].amount - currencyJs(value),
+    ).value;
 
     const targetCurrencyNewAmount = (
-      amountInDollars * currencyRates[changingToCurrency].rate
-      + mainPocket[changingToCurrency].amount
-    );
+      currencyJs(amountInDollars) * currencyRates[changingToCurrency].rate
+      + currencyJs(mainPocket[changingToCurrency].amount)
+    ).value;
 
     setCurrencyAmountAction(changingFromCurrency, selectedCurrencyNewAmount);
     setCurrencyAmountAction(changingToCurrency, targetCurrencyNewAmount);
