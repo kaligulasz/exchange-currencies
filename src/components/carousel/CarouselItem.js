@@ -6,18 +6,33 @@ const ItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  min-width: 100px;
+  min-width: 8rem;
+  font-size: 1.2rem;
+`;
+
+const Title = styled.h4`
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 0;
+`;
+
+const Description = styled.p`
+  font-size: 1rem;
+  font-weight: 300;
+  white-space: nowrap;
+`;
+
+const CurrencySymbol = styled.span`
+  font-size: 1.5rem;
 `;
 
 const CarouselItem = ({ item }) => (
   <ItemWrapper>
-    <div>
-      <span>
-        {item.currency}
-      </span>
+    <Title>
+      <CurrencySymbol>{item.currencySymbol}</CurrencySymbol>
       {item.amount}
-    </div>
-    <div>{item.description}</div>
+    </Title>
+    <Description>{item.description}</Description>
   </ItemWrapper>
 );
 

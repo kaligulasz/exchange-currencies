@@ -11,6 +11,7 @@ const Input = styled.input`
   color: ${props => props.theme.color.white};
   position: relative;
   outline: none;
+  max-width: 3rem;
 `;
 
 const MinusIcon = styled.div`

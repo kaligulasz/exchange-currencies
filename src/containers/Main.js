@@ -8,7 +8,6 @@ import { Sync } from 'styled-icons/octicons/Sync';
 
 // Components
 import Button from '../components/Button';
-import AppWrapper from '../components/AppWrapper';
 
 // Reducers
 import { getMainPocket } from '../reducers/mainPocketReducer';
@@ -18,6 +17,11 @@ const FlexContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+`;
+
+const PrimaryWrapper = styled.div`
+  background: ${props => props.theme.color.primaryGradient};
+  height: ${props => props.theme.primaryHeight};
 `;
 
 const Main = ({ mainPocket, history }) => {
@@ -31,14 +35,14 @@ const Main = ({ mainPocket, history }) => {
   };
 
   return (
-    <AppWrapper>
+    <PrimaryWrapper>
       <FlexContainer>
         <Carousel items={mainPocket} onSlideChange={setSelectedCurrency} />
         <Button onClick={handleOnClick} secondary>
           <Sync size="20" />
         </Button>
       </FlexContainer>
-    </AppWrapper>
+    </PrimaryWrapper>
   );
 };
 
