@@ -54,6 +54,10 @@ const ExchangeWrapper = ({
   const changingFromPocket = exchangePocket[changingFromCurrency];
   const changingToPocket = exchangePocket[changingToCurrency];
 
+  const actualRate = () => (
+    currencyRates[changingToCurrency].rate / currencyRates[changingFromCurrency].rate
+  );
+
   const onAmountChange = (value) => {
     const amountInDollars = value / currencyRates[changingFromCurrency].rate;
     const selectedCurrencyNewAmount = mainPocket[changingFromCurrency].amount - value;
@@ -84,6 +88,8 @@ const ExchangeWrapper = ({
         <ExchangeItem
           mainPocket={mainPocket}
           pocket={changingToPocket}
+          actualRate={actualRate()}
+          changingFromCurrencySymbol={changingFromPocket.currencySymbol}
           secondary
         />
       </BackgroundWrapper>

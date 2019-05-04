@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Plus } from 'styled-icons/typicons/Plus';
 
 // Components
 import MoneyInput from './MoneyInput';
@@ -37,6 +38,17 @@ const Item = styled.div`
 const Description = styled.div`
   opacity: 0.7;
   margin-top: 0.5rem;
+  
+  ${({ textAlignRight }) => textAlignRight && `
+    text-align: right;
+  `};
+`;
+
+
+const Result = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 `;
 
 const ExchangeItem = ({
@@ -45,8 +57,12 @@ const ExchangeItem = ({
   secondary,
   onAmountChange,
   mainPocket,
+  actualRate,
+  changingFromCurrencySymbol,
 }) => {
   const { currency, currencySymbol, amount } = pocket;
+  const mainPocketAmount = mainPocket[currency].amount;
+  const summaryAmount = amount - mainPocketAmount;
 
   return (
     <Wrapper secondary={secondary}>
@@ -56,17 +72,33 @@ const ExchangeItem = ({
           <Description>
             You have
             <span>{currencySymbol}</span>
-            {amount}
+            {mainPocketAmount}
           </Description>
         </Item>
 
         {primary
           ? (
             <Item>
-              <MoneyInput onChange={onAmountChange} maxValue={mainPocket[currency].amount} />
+              <MoneyInput onChange={onAmountChange} maxValue={mainPocketAmount} />
             </Item>
           ) : (
-            <div>{amount}</div>
+            <div>
+              <Result>
+                {summaryAmount > 0
+                  && (
+                    <Fragment>
+                      <Plus size="20" />
+                      <Title>
+                        {amount - mainPocketAmount}
+                      </Title>
+                    </Fragment>
+                  )
+                }
+              </Result>
+              <Description textAlignRight>
+                {`${changingFromCurrencySymbol}1 = ${currencySymbol} ${actualRate}`}
+              </Description>
+            </div>
           )
         }
       </Container>
@@ -78,6 +110,8 @@ ExchangeItem.defaultProps = {
   primary: false,
   secondary: false,
   onAmountChange: null,
+  actualRate: null,
+  changingFromCurrencySymbol: '',
 };
 
 ExchangeItem.propTypes = {
@@ -86,6 +120,8 @@ ExchangeItem.propTypes = {
   secondary: PropTypes.bool,
   onAmountChange: PropTypes.func,
   mainPocket: PropTypes.object.isRequired,
+  actualRate: PropTypes.number,
+  changingFromCurrencySymbol: PropTypes.string,
 };
 
 export default ExchangeItem;
