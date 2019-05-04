@@ -31,6 +31,8 @@ const CurrencySelectors = ({ currencyList, history, match }) => {
     changingToCurrency: match.params.changingToCurrency,
   });
 
+  const { changingFromCurrency, changingToCurrency } = selectedCurrency;
+
   const handleOnSelectChange = (event) => {
     if (event.target.getAttribute('data-changing') === 'from') {
       setSelectedCurrency({
@@ -46,25 +48,25 @@ const CurrencySelectors = ({ currencyList, history, match }) => {
   };
 
   useEffect(() => {
-    history.push(`/exchange/${selectedCurrency.changingFromCurrency}/${selectedCurrency.changingToCurrency}`);
+    history.push(`/exchange/${changingFromCurrency}/${changingToCurrency}`);
   }, [selectedCurrency]);
 
   return (
     <SelectorsWrapper>
       <Typo>from</Typo>
       <Select
-        options={currencyList}
+        options={currencyList.filter(currency => currency !== changingToCurrency)}
         onChange={handleOnSelectChange}
         data-changing="from"
-        selected={selectedCurrency.changingFromCurrency}
+        selected={changingFromCurrency}
       />
 
       <Typo marginLeft>to</Typo>
       <Select
-        options={currencyList}
+        options={currencyList.filter(currency => currency !== changingFromCurrency)}
         onChange={handleOnSelectChange}
         data-changing="to"
-        selected={selectedCurrency.changingToCurrency}
+        selected={changingToCurrency}
       />
     </SelectorsWrapper>
   );
