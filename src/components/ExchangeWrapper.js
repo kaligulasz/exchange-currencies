@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Sync } from 'styled-icons/octicons/Sync';
 import currencyJs from 'currency.js';
+import ReactRouterPropTypes from 'react-router-prop-types';
 
 // Actions
 import { syncWithMainPocket, setCurrencyAmount } from '../actions/exchangePocketActions';
@@ -39,6 +40,7 @@ const ButtonWrapper = styled.div`
 const ExchangeWrapper = ({
   mainPocket,
   match,
+  history,
   syncWithMainPocketAction,
   exchangePocket,
   currencyRates,
@@ -75,7 +77,11 @@ const ExchangeWrapper = ({
   };
 
   const handleOnExchange = () => {
-    updateMainPocketAction(exchangePocket);
+    if (changingToPocket.amount !== mainPocket[changingToCurrency].amount) {
+      updateMainPocketAction(exchangePocket);
+
+      history.push('/');
+    }
   };
 
   return (
@@ -112,12 +118,13 @@ const ExchangeWrapper = ({
 
 ExchangeWrapper.propTypes = {
   mainPocket: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired,
+  match: ReactRouterPropTypes.match.isRequired,
   syncWithMainPocketAction: PropTypes.func.isRequired,
   exchangePocket: PropTypes.object.isRequired,
   currencyRates: PropTypes.object.isRequired,
   setCurrencyAmountAction: PropTypes.func.isRequired,
   updateMainPocketAction: PropTypes.func.isRequired,
+  history: ReactRouterPropTypes.history.isRequired,
 };
 
 const mapStateToProps = state => ({
