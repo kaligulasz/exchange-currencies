@@ -8,7 +8,7 @@ import Button from './Button';
 import CurrencySelectors from './CurrencySelectors';
 
 const Background = styled.div`
-  background: #464b51;
+  background: ${props => props.theme.color.primary};
   height: 12%;
   display: flex;
 `;
