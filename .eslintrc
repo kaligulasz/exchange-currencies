@@ -1,0 +1,16 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "jest/globals": true,
+    "es6": true
+  },
+  "plugins": ["jest"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "import/prefer-default-export": "off",
+    "react/forbid-prop-types": [true, { "forbid": "any", "checkContextTypes": true, "checkChildContextTypes": true }],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["src/configureStore.js", "**/*.test.js", "src/setupTests.js"]}]
+  }
+}

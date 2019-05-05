@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ExchangeItem /> renders <ExchangeItem primary/> 1`] = `
+<ExchangeItem__Wrapper
+  secondary={false}
+>
+  <ExchangeItem__Container>
+    <ExchangeItem__Item>
+      <ExchangeItem__Title>
+        usd
+      </ExchangeItem__Title>
+      <ExchangeItem__Description>
+        You have $30.31
+      </ExchangeItem__Description>
+    </ExchangeItem__Item>
+    <ExchangeItem__Item>
+      <MoneyInput
+        maxValue={30.31}
+        onChange={[Function]}
+      />
+    </ExchangeItem__Item>
+  </ExchangeItem__Container>
+</ExchangeItem__Wrapper>
+`;
+
+exports[`<ExchangeItem /> renders <ExchangeItem secondary/> 1`] = `
+<ExchangeItem__Wrapper
+  secondary={true}
+>
+  <ExchangeItem__Container>
+    <ExchangeItem__Item>
+      <ExchangeItem__Title>
+        usd
+      </ExchangeItem__Title>
+      <ExchangeItem__Description>
+        You have $30.31
+      </ExchangeItem__Description>
+    </ExchangeItem__Item>
+    <ExchangeItem__ResultWrapper>
+      <ExchangeItem__Result>
+        <Plus
+          size="20"
+        />
+        <ExchangeItem__Title>
+          0
+        </ExchangeItem__Title>
+      </ExchangeItem__Result>
+      <ExchangeItem__Description
+        textAlignRight={true}
+      >
+        $1 = $0.79
+      </ExchangeItem__Description>
+    </ExchangeItem__ResultWrapper>
+  </ExchangeItem__Container>
+</ExchangeItem__Wrapper>
+`;
