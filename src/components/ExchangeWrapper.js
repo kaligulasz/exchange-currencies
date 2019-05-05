@@ -21,24 +21,23 @@ import ExchangeItem from './ExchangeItem';
 import Button from './Button';
 import ExchangeNavigation from './ExchangeNavigation';
 
-
 // Styled
-const PrimaryWrapper = styled.div`
+const PrimaryWrapper = styled.section`
   height: ${props => props.theme.primaryHeight};
 `;
 
-const ItemsWrapper = styled.div`
+const ItemsWrapper = styled.section`
   background: ${props => props.theme.color.primaryGradient};
   height: 73%;
 `;
 
-const StyledSync = styled(Sync)`
+const SyncIcon = styled(Sync)`
   display: block;
   float: right;
   margin-left: 0.3rem;
 `;
 
-const Footer = styled.div`
+const Footer = styled.footer`
   text-align: center;
   background: linear-gradient(90deg, rgba(18,67,111,1) 0%, rgba(47,144,114,1) 100%);
   display: flex;
@@ -97,6 +96,7 @@ const ExchangeWrapper = ({
   return (
     <PrimaryWrapper>
       <ExchangeNavigation />
+
       <ItemsWrapper>
         <ExchangeItem
           mainPocket={mainPocket}
@@ -113,6 +113,7 @@ const ExchangeWrapper = ({
           secondary
         />
       </ItemsWrapper>
+
       <Footer>
         <Button
           onClick={handleOnExchange}
@@ -120,7 +121,7 @@ const ExchangeWrapper = ({
           uppercase
         >
           exchange
-          <StyledSync size="19" />
+          <SyncIcon size="19" />
         </Button>
       </Footer>
     </PrimaryWrapper>

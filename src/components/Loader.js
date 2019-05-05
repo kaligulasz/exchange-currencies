@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Spinner5 } from 'styled-icons/icomoon/Spinner5';
 
 const Background = styled.div`
-  background: rgba(0, 0, 0, 0.7);
+  background: ${props => props.theme.color.primaryGradient};
   position: absolute;
   height: 100%;
   width: 100%;
@@ -27,7 +27,9 @@ const StyledSpinner = styled(Spinner5)`
 `;
 
 const Loader = () => (
-  <Background><StyledSpinner /></Background>
+  <Background>
+    <StyledSpinner />
+  </Background>
 );
 
 export default Loader;

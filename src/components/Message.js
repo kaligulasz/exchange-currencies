@@ -16,7 +16,7 @@ const MessageWrapper = styled.div`
   background: ${props => props.theme.color.primary};
 `;
 
-const ErrorMessage = ({
+const Message = ({
   message,
   children,
 }) => (
@@ -26,12 +26,16 @@ const ErrorMessage = ({
   </MessageWrapper>
 );
 
-ErrorMessage.propTypes = {
+Message.defaultProps = {
+  children: '',
+};
+
+Message.propTypes = {
   message: PropTypes.string.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
-  ]).isRequired,
+  ]),
 };
 
-export default ErrorMessage;
+export default Message;

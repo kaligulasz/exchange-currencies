@@ -1,3 +1,7 @@
+import React from 'react';
+import sinon from 'sinon';
+import { shallow, mount } from 'enzyme';
+
 import theme from '../../common/themeVariables';
 
 import Button from '../Button';
