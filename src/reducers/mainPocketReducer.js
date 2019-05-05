@@ -1,3 +1,5 @@
+import { createSelector } from 'reselect';
+
 import {
   UPDATE_MAIN_POCKET,
 } from '../actions/mainPocketActions';
@@ -39,6 +41,9 @@ const mainPocket = (state = {
 };
 
 export const getMainPocket = state => state.mainPocket.pockets;
-export const getMainPocketCurrencyList = state => Object.keys(state.mainPocket.pockets);
+export const getMainPocketCurrencyList = createSelector(
+  [getMainPocket],
+  pockets => Object.keys(pockets),
+);
 
 export default mainPocket;
