@@ -25,11 +25,15 @@ const Wrapper = styled.section`
 
 const Container = styled.div`
   margin: 0 auto;
-  width: ${props => props.theme.primaryWidth};
+  width: ${props => props.theme.mobileWidth};
   max-width: ${props => props.theme.primaryMaxWidth};
   display: flex;
   height: 100%;
   align-items: center;
+  
+  @media (min-width: ${props => props.theme.mediaQuery.phoneBig}) {
+    width: ${props => props.theme.primaryWidth};
+  }
 `;
 
 const Item = styled.div`

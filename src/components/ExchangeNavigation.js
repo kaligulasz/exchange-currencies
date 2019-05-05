@@ -14,12 +14,16 @@ const Background = styled.header`
 `;
 
 const AppWrapper = styled.div`
-  width: ${props => props.theme.primaryWidth};
+  width: ${props => props.theme.mobileWidth};
   margin: 0 auto;
   display: flex;
   align-items: center;
   max-width: ${props => props.theme.primaryMaxWidth};
   justify-content: space-between;
+  
+  @media (min-width: ${props => props.theme.mediaQuery.phoneBig}) {
+    width: ${props => props.theme.primaryWidth};
+  }
 `;
 
 const ExchangeNavigation = ({ history }) => {

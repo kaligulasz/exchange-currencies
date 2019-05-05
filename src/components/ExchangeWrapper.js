@@ -24,6 +24,10 @@ import ExchangeNavigation from './ExchangeNavigation';
 // Styled
 const PrimaryWrapper = styled.section`
   height: ${props => props.theme.primaryHeight};
+  
+  @media (min-width: ${props => props.theme.mediaQuery.phoneBig}) and (orientation: landscape) {
+    height: ${props => props.theme.mobileHeight};
+  }
 `;
 
 const ItemsWrapper = styled.section`
