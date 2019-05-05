@@ -4,7 +4,7 @@
 
 // PRIVATE
 
-const appId = '53a4926114064205bb44d5a875ca0b50';
+const appId = '7efd2c8dfa6549bbbe3b3911dacf4cc4';
 
 /**
  * Build url based on passed arguments

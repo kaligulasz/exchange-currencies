@@ -30,7 +30,7 @@ function* updateCurrencyRates() {
 
       yield put(updateCurrencyRatesSuccessful(currenciesData));
 
-      yield delay(1000000);
+      yield delay(10000);
     }
   } catch (error) {
     yield put(updateCurrencyRatesFailed(error));
