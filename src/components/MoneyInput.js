@@ -11,7 +11,11 @@ const Input = styled.input`
   color: ${props => props.theme.color.white};
   position: relative;
   outline: none;
-  max-width: 3rem;
+  max-width: 10rem;
+  
+  ::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
 `;
 
 const MinusIcon = styled.div`
@@ -65,7 +69,14 @@ const MoneyInput = ({ onChange, maxValue }) => {
   return (
     <Wrapper>
       {inputValue && <MinusIcon />}
-      <Input onChange={checkValidation} size={inputValue.length} type="text" value={inputValue} />
+      <Input
+        onChange={checkValidation}
+        size={inputValue.length}
+        type="text"
+        value={inputValue}
+        placeholder="amount"
+        autofocus="true"
+      />
     </Wrapper>
   );
 };

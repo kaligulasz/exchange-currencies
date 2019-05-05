@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ErrorMessage /> renders children and message 1`] = `
-<ErrorMessage__MessageWrapper>
+exports[`<Message /> renders children and message 1`] = `
+<Message__MessageWrapper>
   <div>
     some children
   </div>
   example error message
-</ErrorMessage__MessageWrapper>
+</Message__MessageWrapper>
 `;

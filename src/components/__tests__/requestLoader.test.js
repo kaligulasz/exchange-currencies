@@ -1,15 +1,8 @@
-import theme from '../../common/themeVariables';
+import React from 'react';
+import { shallow } from 'enzyme';
 
 import RequestLoader from '../RequestLoader';
 import Loader from '../Loader';
-import ErrorMessage from '../ErrorMessage';
-import { Error } from 'styled-icons/boxicons-regular/Error';
-import React from 'react';
-import styled from 'styled-components';
-
-const ErrorIcon = styled(Error)`
-  margin-right: 0.5em;
-`;
 
 describe('<RequestLoader />', () => {
   it('renders loader component when status is initial', () => {

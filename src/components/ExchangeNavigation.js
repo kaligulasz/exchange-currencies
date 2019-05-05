@@ -7,7 +7,7 @@ import ReactRouterPropTypes from 'react-router-prop-types';
 import Button from './Button';
 import CurrencySelectors from './CurrencySelectors';
 
-const Background = styled.div`
+const Background = styled.header`
   background: ${props => props.theme.color.primary};
   height: 12%;
   display: flex;

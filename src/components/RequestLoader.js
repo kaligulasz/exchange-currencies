@@ -5,7 +5,7 @@ import { Error } from 'styled-icons/boxicons-regular/Error';
 
 // Components
 import Loader from './Loader';
-import ErrorMessage from './ErrorMessage';
+import Message from './Message';
 
 const Wrapper = styled.div`
   position: relative;
@@ -27,9 +27,9 @@ const RequestLoader = ({ status, children }) => (
 
     {status === 'failed'
       && (
-        <ErrorMessage message="something went wrong">
+        <Message message="something went wrong">
           <ErrorIcon size="35" />
-        </ErrorMessage>
+        </Message>
       )
     }
   </Wrapper>

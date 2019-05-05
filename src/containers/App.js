@@ -8,7 +8,6 @@ import {
 
 import theme from '../common/themeVariables';
 
-
 // Components
 import Main from './Main';
 import Exchange from './Exchange';

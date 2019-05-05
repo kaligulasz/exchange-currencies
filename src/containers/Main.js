@@ -19,7 +19,7 @@ const FlexContainer = styled.div`
   flex-direction: column;
 `;
 
-const PrimaryWrapper = styled.div`
+const PrimaryWrapper = styled.section`
   background: ${props => props.theme.color.primaryGradient};
   height: ${props => props.theme.primaryHeight};
 `;
@@ -30,8 +30,10 @@ const Main = ({ mainPocket, history }) => {
     changingToCurrency: 'eur',
   });
 
+  const { changingFromCurrency, changingToCurrency } = selectedCurrency;
+
   const handleOnClick = () => {
-    history.push(`exchange/${selectedCurrency.changingFromCurrency}/${selectedCurrency.changingToCurrency}`);
+    history.push(`exchange/${changingFromCurrency}/${changingToCurrency}`);
   };
 
   return (

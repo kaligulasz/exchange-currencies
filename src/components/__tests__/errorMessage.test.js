@@ -1,11 +1,14 @@
-import ErrorMessage from '../ErrorMessage';
+import React from 'react';
+import { shallow } from 'enzyme';
 
-describe('<ErrorMessage />', () => {
+import Message from '../Message';
+
+describe('<Message />', () => {
   it('renders children and message', () => {
     const componentWithChildren = shallow(
-      <ErrorMessage message="example error message">
+      <Message message="example error message">
         <div>some children</div>
-      </ErrorMessage>,
+      </Message>,
     );
 
     expect(componentWithChildren).toMatchSnapshot();

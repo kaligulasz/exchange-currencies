@@ -95,7 +95,7 @@ const ExchangeItem = ({
                 </Fragment>
               </Result>
               <Description textAlignRight>
-                {`${changingFromCurrencySymbol}1 = ${currencySymbol} ${currencyJs(actualRate)}`}
+                {`${changingFromCurrencySymbol}1 = ${currencySymbol}${currencyJs(actualRate)}`}
               </Description>
             </ResultWrapper>
           )
