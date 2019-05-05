@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RequestLoader /> renders error component when status is failed 1`] = `
+<RequestLoader__Wrapper>
+  <ErrorMessage
+    message="something went wrong"
+  >
+    <RequestLoader__ErrorIcon
+      size="35"
+    />
+  </ErrorMessage>
+</RequestLoader__Wrapper>
+`;

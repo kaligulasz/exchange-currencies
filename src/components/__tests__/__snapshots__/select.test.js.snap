@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Select /> renders select with passed options 1`] = `
+<Select__StyledSelect
+  defaultValue="USD"
+  onChange={[Function]}
+>
+  <option
+    key="USD, GBP, EUR"
+  >
+    USD, GBP, EUR
+  </option>
+</Select__StyledSelect>
+`;
