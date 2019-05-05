@@ -51,6 +51,18 @@ const MoneyInput = ({ onChange, maxValue }) => {
     return afterDot.length < 3;
   };
 
+  const validateMultipleZero = (value) => {
+    if (value.length > 2) {
+      const slicedValue = value.slice(0, 3);
+
+      if (slicedValue === '000') {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
   const checkValidation = (event) => {
     const { value } = event.target;
     const regex = /^[0-9.]+$/;
@@ -59,6 +71,7 @@ const MoneyInput = ({ onChange, maxValue }) => {
       (value === '' || regex.test(value))
       && validateDotDuplication(value)
       && validateTwoDigitsAfterDot(value)
+      && validateMultipleZero(value)
       && maxValue >= value
     ) {
       onChange(value);
