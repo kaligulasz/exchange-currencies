@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CurrencySelectors /> renders <CurrencySelectors /> 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

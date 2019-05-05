@@ -12,7 +12,7 @@ import { syncWithMainPocket, setCurrencyAmount } from '../actions/exchangePocket
 import { updateMainPocket } from '../actions/mainPocketActions';
 
 // Reducers
-import { getMainPocket } from '../reducers/mainPocketReducer';
+import { getMainPocket, getMainPocketCurrencyList } from '../reducers/mainPocketReducer';
 import { getExchangePocket } from '../reducers/exchangePocketReducer';
 import { getCurrencyRates } from '../reducers/currencyRatesReducer';
 import ExchangeItem from './ExchangeItem';
@@ -59,6 +59,7 @@ const ExchangeWrapper = ({
   currencyRates,
   setCurrencyAmountAction,
   updateMainPocketAction,
+  currencyList,
 }) => {
   const { changingFromCurrency = 'usd' } = match.params;
   const { changingToCurrency = 'eur' } = match.params;
@@ -99,7 +100,7 @@ const ExchangeWrapper = ({
 
   return (
     <PrimaryWrapper>
-      <ExchangeNavigation />
+      <ExchangeNavigation currencyList={currencyList} />
 
       <ItemsWrapper>
         <ExchangeItem
@@ -141,12 +142,14 @@ ExchangeWrapper.propTypes = {
   setCurrencyAmountAction: PropTypes.func.isRequired,
   updateMainPocketAction: PropTypes.func.isRequired,
   history: ReactRouterPropTypes.history.isRequired,
+  currencyList: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = state => ({
   mainPocket: getMainPocket(state),
   exchangePocket: getExchangePocket(state),
   currencyRates: getCurrencyRates(state),
+  currencyList: getMainPocketCurrencyList(state),
 });
 
 export default connect(
