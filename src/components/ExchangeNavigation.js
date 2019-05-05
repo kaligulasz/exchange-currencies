@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
 
 // Components
@@ -26,7 +27,7 @@ const AppWrapper = styled.div`
   }
 `;
 
-const ExchangeNavigation = ({ history }) => {
+const ExchangeNavigation = ({ history, currencyList }) => {
   const handleOnClick = () => {
     history.push('/');
   };
@@ -34,7 +35,7 @@ const ExchangeNavigation = ({ history }) => {
   return (
     <Background>
       <AppWrapper>
-        <CurrencySelectors />
+        <CurrencySelectors currencyList={currencyList} />
         <Button onClick={handleOnClick} tertiary uppercase>back</Button>
       </AppWrapper>
     </Background>
@@ -43,6 +44,7 @@ const ExchangeNavigation = ({ history }) => {
 
 ExchangeNavigation.propTypes = {
   history: ReactRouterPropTypes.history.isRequired,
+  currencyList: PropTypes.array.isRequired,
 };
 
 export default withRouter(ExchangeNavigation);

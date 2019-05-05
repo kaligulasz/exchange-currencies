@@ -76,6 +76,7 @@ const MoneyInput = ({ onChange, maxValue }) => {
         value={inputValue}
         placeholder="amount"
         autoFocus
+        name="money-input"
       />
     </Wrapper>
   );

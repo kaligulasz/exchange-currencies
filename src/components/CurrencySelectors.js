@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
-// Reducers
-import { getMainPocketCurrencyList } from '../reducers/mainPocketReducer';
 
 // Components
 import Select from './Select';
@@ -78,10 +74,4 @@ CurrencySelectors.propTypes = {
   match: ReactRouterPropTypes.match.isRequired,
 };
 
-const mapStateToProps = state => ({
-  currencyList: getMainPocketCurrencyList(state),
-});
-
-export default connect(
-  mapStateToProps,
-)(withRouter(CurrencySelectors));
+export default withRouter(CurrencySelectors);
