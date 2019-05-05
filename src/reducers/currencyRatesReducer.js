@@ -36,7 +36,7 @@ const currencyRates = (state = {
             rate: action.payload.rates.USD,
           },
           eur: {
-            ...state.currencies.euro,
+            ...state.currencies.eur,
             rate: action.payload.rates.EUR,
           },
           gbp: {
