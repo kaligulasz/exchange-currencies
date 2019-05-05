@@ -22,6 +22,11 @@ const FlexContainer = styled.div`
 const PrimaryWrapper = styled.section`
   background: ${props => props.theme.color.primaryGradient};
   height: ${props => props.theme.primaryHeight};
+  overflow: hidden;
+  
+  @media (min-width: ${props => props.theme.mediaQuery.phoneBig}) and (orientation: landscape) {
+    height: ${props => props.theme.mobileHeight};
+  }
 `;
 
 const Main = ({ mainPocket, history }) => {
